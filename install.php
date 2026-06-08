@@ -28,9 +28,16 @@ if ($check->num_rows == 0) {
 
 $check_clienti = $conn->query("SELECT * FROM `$tab_clienti`");
 if ($check_clienti->num_rows == 0) {
-    $conn->query("INSERT INTO `$tab_clienti` (nome, cognome, email, password, cf) VALUES 
-    ('Alessandro', 'Benelli', 'benelli.1983399@studenti.uniroma1.it', '44556677', 'BNLLSN02T04D810Z')");
+    $conn->query(
+        "INSERT INTO `$tab_clienti` (nome, cognome, email, password, cf) VALUES 
+    ('Alessandro', 'Benelli', 'benelli.1983399@studenti.uniroma1.it', '44556677', 'BNLLSN02T04D810Z'),
+    ('Sara', 'Rossi', 'sara.rossi@example.com', 'password123', 'RSSSRA85M12H501U'),
+    ('Luca', 'Bianchi', 'luca.bianchi@example.com', 'pass2024', 'BNCLCU90A01F205X'),
+    ('Martina', 'Esposito', 'martina.esposito@example.com', 'wellness', 'SPSMRT98P55D612B'),
+    ('Giovanni', 'Ferrari', 'giovanni.ferrari@example.com', 'gymlover', 'FRRGNN76T22C351S')"
+    );
 }
+
 
 echo "<p>✅ Database e Tabelle creati con successo!</p>";
 echo "<a href='home.php'>Vai al sito web</a>";
