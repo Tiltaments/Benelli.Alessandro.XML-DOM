@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE acquisti [
+    <!ELEMENT acquisti (acquisto*)>
+    <!ELEMENT acquisto (id_acquisto, id_cliente, nome_pacchetto, prezzo)>
+    <!ELEMENT id_acquisto (#PCDATA)>
+    <!ELEMENT id_cliente (#PCDATA)>
+    <!ELEMENT nome_pacchetto (#PCDATA)>
+    <!ELEMENT prezzo (#PCDATA)>
+]>
+<acquisti>
+</acquisti>
