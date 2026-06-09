@@ -26,12 +26,12 @@ if (!isset($_SESSION['user_id'])) {
         if (isset($_GET['msg']) && $_GET['msg'] == 'Eliminato') echo "<p style='color:red; font-weight:bold;'>Acquisto annullato.</p>";
         ?>
 
-        <table border="1" cellpadding="10" style="border-collapse: collapse; width:100%; background:white;">
+        <table style="border-collapse: collapse; width:100%; background:white; border: 1px solid #ccc;">
             <tr style="background:#2c3e50; color:white;">
-                <th>ID Ordine</th>
-                <th>Pacchetto Acquistato</th>
-                <th>Prezzo</th>
-                <th>Azione</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">ID Ordine</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Pacchetto Acquistato</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Prezzo</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Azione</th>
             </tr>
             <?php
             $uid = $_SESSION['user_id'];
@@ -40,29 +40,24 @@ if (!isset($_SESSION['user_id'])) {
 
             if (file_exists($file_xml)) {
                 $dom = new DOMDocument();
-                $dom->load($file_xml);  // Carico l'albero in memoria
-
-                // Ottengo la lista di tutti i nodi <acquisto> presenti nel documento
+                $dom->load($file_xml);
                 $lista_acquisti = $dom->getElementsByTagName('acquisto');
 
                 foreach ($lista_acquisti as $acquisto) {
-                    // Per ogni nodo <acquisto>, leggo il valore del figlio <id_cliente>
                     $id_cliente_xml = $acquisto->getElementsByTagName('id_cliente')->item(0)->nodeValue;
 
-                    // Se l'id_cliente del nodo XML corrisponde all'id dell'utente loggato, visualizzo i dettagli dell'acquisto
                     if ($id_cliente_xml == $uid) {
                         $acquisti_trovati = true;
 
-                        // Leggo i valori degli altri figli per mostrarli nella tabella
                         $id_acq = $acquisto->getElementsByTagName('id_acquisto')->item(0)->nodeValue;
                         $nome_p = $acquisto->getElementsByTagName('nome_pacchetto')->item(0)->nodeValue;
                         $prezzo = $acquisto->getElementsByTagName('prezzo')->item(0)->nodeValue;
 
                         echo "<tr>";
-                        echo "<td>#" . htmlspecialchars($id_acq) . "</td>";
-                        echo "<td>" . htmlspecialchars($nome_p) . "</td>";
-                        echo "<td>€ " . htmlspecialchars($prezzo) . "</td>";
-                        echo "<td>
+                        echo "<td style='padding: 10px; border: 1px solid #ccc;'>#" . htmlspecialchars($id_acq) . "</td>";
+                        echo "<td style='padding: 10px; border: 1px solid #ccc;'>" . htmlspecialchars($nome_p) . "</td>";
+                        echo "<td style='padding: 10px; border: 1px solid #ccc;'>€ " . htmlspecialchars($prezzo) . "</td>";
+                        echo "<td style='padding: 10px; border: 1px solid #ccc; text-align:center;'>
                                 <form action='elimina_acquisto.php' method='post'>
                                     <input type='hidden' name='id_da_eliminare' value='$id_acq'>
                                     <input type='submit' value='Annulla Ordine' style='background-color:#e74c3c; color:white; padding:5px; border:none; cursor:pointer;'>
@@ -74,7 +69,7 @@ if (!isset($_SESSION['user_id'])) {
             }
 
             if (!$acquisti_trovati) {
-                echo "<tr><td colspan='4' style='text-align:center;'>Nessun acquisto effettuato.</td></tr>";
+                echo "<tr><td colspan='4' style='padding: 10px; border: 1px solid #ccc; text-align:center;'>Nessun acquisto effettuato.</td></tr>";
             }
             ?>
         </table>
