@@ -3,7 +3,7 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">z
+    <meta charset="UTF-8">
     <title>Palestra 648 - Servizi</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,17 +17,17 @@
         <div class="card-container">
             <div class="card">
                 <img src="img/sala_pesi.jpg" alt="Sala Pesi">
-                <h3>Sala Pesi</h3>
+                <h2>Sala Pesi</h2>
                 <p>Macchinari all'avanguardia per l'allenamento muscolare.</p>
             </div>
             <div class="card">
-                <img src="img/sala fitness.jpg" alt="Fitness">
-                <h3>Corsi Fitness</h3>
+                <img src="img/sala_fitness.jpg" alt="Fitness">
+                <h2>Corsi Fitness</h2>
                 <p>Zumba, Pilates e Yoga in aule luminose e spaziose.</p>
             </div>
             <div class="card">
                 <img src="img/sauna.jpg" alt="Sauna">
-                <h3>Area Relax</h3>
+                <h2>Area Relax</h2>
                 <p>Sauna per il recupero fisico post-allenamento.</p>
             </div>
         </div>
