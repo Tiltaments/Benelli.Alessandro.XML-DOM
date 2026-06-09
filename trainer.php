@@ -25,7 +25,7 @@ require_once('connection.php');
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='card'>";
                     echo "<img src='img/" . $row['nome'] . "_trainer.jpg' alt='Trainer'>";
-                    echo "<h3>" . $row['nome'] . " " . $row['cognome'] . "</h3>";
+                    echo "<h2>" . $row['nome'] . " " . $row['cognome'] . "</h2>";
                     echo "<p><strong>Spec:</strong> " . $row['specializzazione'] . "</p>";
                     echo "</div>";
                 }
